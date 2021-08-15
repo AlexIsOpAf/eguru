@@ -32,6 +32,8 @@ Although the time estimation for the project has skewed, It still represents the
 
 ![Imgur](documents/images/gantt-chart-overview.png)
 
+[Issues Im working on: Notion..](https://www.notion.so/24aed6a0f02c4f3a87ec2ff7a55de317?v=c0db33f39d684cc19f989c2255bdb131)
+
 ## System Design
 
 The complete system design that covers everything that contributes to the application's operational ability, Infrastructure, Progression system and Application design. 
