@@ -18,6 +18,7 @@ jobs:
         cd API/
         go mod tidy
         go mod verify
+        go env
 
     - name: Go test
       run: |
