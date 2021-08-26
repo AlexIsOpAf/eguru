@@ -17,8 +17,7 @@ jobs:
 
     - name: Get dependencies
       run: |
-        cd ./API
-        go mod download ./API
+        pwd
 
     - name: Go test
       run: |
