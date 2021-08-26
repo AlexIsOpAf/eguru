@@ -13,15 +13,11 @@ jobs:
       with:
         go-version: 1.15.5
 
-    - name: Get dependencies
+    - name: Go test
       run: |
         cd API/
         go mod tidy
         go mod verify
-        go env
-
-    - name: Go test
-      run: |
         go test -v ./...
     
     - name: docker login
