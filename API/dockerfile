@@ -1,0 +1,23 @@
+## Base image for go app
+FROM golang:1.12.0-alpine3.9
+
+# Installing git and gorilla mux module? go mod download if more dependencies
+RUN apk update && apk add git && go get -u github.com/gorilla/mux
+
+EXPOSE 8080
+## We create an /app directory within our
+## image that will hold our application source
+## files
+RUN mkdir /app
+## We copy everything in the root directory
+## into our /app directory
+ADD . /app
+
+## Our current working directory
+WORKDIR /app
+
+## Compile and build go binary main
+RUN go build -o main cmd/guru/main.go
+
+## Run go binary
+CMD ./main
