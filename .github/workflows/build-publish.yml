@@ -2,6 +2,7 @@ name: Main Workflow Base - Test. Build and deploy to dockerhub
 
 on:
   push:
+  pull_request:
     branches: [ main ]
 
 jobs:
@@ -31,7 +32,7 @@ jobs:
       id: docker_build
       uses: docker/build-push-action@v2
       with:
-        context: ./
+        context: .
         file: ./API/dockerfile
         push: true
         tags: ${{ secrets.DOCKER_USER }}/eguru:latest
