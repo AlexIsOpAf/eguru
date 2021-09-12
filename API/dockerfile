@@ -17,7 +17,7 @@ ADD . /app
 WORKDIR /app
 
 ## Compile and build go binary main
-RUN go build -o main cmd/guru/main.go
+RUN go build ./...
 
 ## Run go binary
-CMD ./main
+CMD ./guru
