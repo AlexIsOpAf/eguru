@@ -1,7 +1,6 @@
 name: Main Workflow Base - Test. Build and deploy to dockerhub
 
 on:
-  push:
   pull_request:
     branches: [ main ]
 
