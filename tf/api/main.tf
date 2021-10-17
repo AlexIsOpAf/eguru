@@ -1,5 +1,5 @@
 # ------------------------------------------------------------------------------
-# CONFIGURE OUR AWS CONNECTION
+# CONFIGURE OUR AWS CONNECTION 
 # ------------------------------------------------------------------------------
 
 
@@ -13,14 +13,29 @@ terraform {
 }
 
 # Configure the AWS Provider
-provider "aws" {
-  region = "eu-west-2"
+provider "aws" {}
+
+
+# ------------------------------------------------------------------------------
+# CONFIGURE OUR AWS VPC
+# /26 => 64 Usable Addresses
+# ------------------------------------------------------------------------------
+resource "aws_vpc" "eguru_vpc" {
+  cidr_block       = "10.0.0.0/26"
+  instance_tenancy = "default"
+
+  tags = {
+    Name = "eguru-vpc"
+  }
 }
 
 
 
-resource "aws_instance" "myec2" {
-   ami = "ami-0dbec48abfe298cab"
-   instance_type = "t2.micro"
-}
+resource "aws_subnet" "main" {
+  vpc_id     = aws_vpc.eguru_vpc.id
+  cidr_block = "10.0.0.0/28"
 
+  tags = {
+    Name = "eguru_public_subnet"
+  }
+}
