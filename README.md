@@ -4,9 +4,7 @@
 - [System Design](#system-design)
   - [Progression System Outline](#progression-system-outline)
   - [Infrastructure](#infrastructure)
-    - [AWS Infrastructure](#aws-infrastructure)
   - [CI/CD Infrastructure](#cicd-infrastructure)
-  - [Application](#application)
 
 
 
@@ -45,19 +43,21 @@ The complete system design that covers everything that contributes to the applic
 
 ### Infrastructure
 
-The overview of the infrastructure from the view of a ci/cd platform to a seamless delivery using AWS. 
-![Imgur](documents/images/infrastructure-architecture.png)
+The overview of the infrastructure aims to implement the diagram shown below.
 
-#### AWS Infrastructure
+An explanation of the flow is as follows:
 
-*** Need to update ***
+1. Traffic is routed through the IGW to a VPC that exposes an ENI in a public subnet.
+2. The ENI is responsible for providing connectivity to our ECS Fargate tasks (would love to introduce an ALB but unless this application gains popularity there will not be much use)
+3. ECS Fargate runs a multi-container setup (client and api) we will have an event from our application invoke our lambda function.
+4. The lambda takes our event and pushes that to an async queue to be handled in a FIFO order
+5. All our lambda function does is tell our second fargate setup which image we need to pull and then injects the message into the startup of the container - this is how our remote code execution works
+6. We then write some metrics to a dynamodb instance and allow fargate to shutdown the unused container automatically
+
+
+![Imgur](documents/images/RCE.jpg)
 
 
 ### CI/CD Infrastructure
-
-*** Need to update ***
-
-
-### Application
 
 *** Need to update ***
