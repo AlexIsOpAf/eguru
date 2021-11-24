@@ -8,6 +8,7 @@
 
 
 
+###[To-Do List: Notion..](https://www.notion.so/24aed6a0f02c4f3a87ec2ff7a55de317?v=c0db33f39d684cc19f989c2255bdb131)
 
 ## Overview 
 
@@ -30,7 +31,7 @@ Although the time estimation for the project has skewed, It still represents the
 
 ![Imgur](documents/images/gantt-chart-overview.png)
 
-[Issues Im working on: Notion..](https://www.notion.so/24aed6a0f02c4f3a87ec2ff7a55de317?v=c0db33f39d684cc19f989c2255bdb131)
+
 
 ## System Design
 
@@ -60,4 +61,9 @@ An explanation of the flow is as follows:
 
 ### CI/CD Infrastructure
 
-*** Need to update ***
+The overview of the CI/CD architecture that will be implemented within this project. 
+
+Note: The CI system has recently changed from Travis CI to github actions.
+
+
+![Imgur](documents/images/infrastructure-architecture.png)
