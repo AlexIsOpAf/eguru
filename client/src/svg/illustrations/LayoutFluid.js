@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 const LayoutFluid = ({
   width = 94,
   height = 94,
-  fillColor = 'currentColor',
+  fillColor = "currentColor"
 }) => {
   return (
     <svg
@@ -43,7 +43,7 @@ const LayoutFluid = ({
 LayoutFluid.propTypes = {
   width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  fillColor: PropTypes.string,
+  fillColor: PropTypes.string
 };
 
 export default LayoutFluid;

@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { useTheme } from '@mui/material/styles';
+import React from "react";
+import PropTypes from "prop-types";
+import { useTheme } from "@mui/material/styles";
 
 const CreditCards2 = ({ width = 130, height = 71 }) => {
   const theme = useTheme();
@@ -192,7 +192,7 @@ const CreditCards2 = ({ width = 130, height = 71 }) => {
 
 CreditCards2.propTypes = {
   width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  height: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 };
 
 export default CreditCards2;

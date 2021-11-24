@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { useTheme } from '@mui/material/styles';
+import React from "react";
+import PropTypes from "prop-types";
+import { useTheme } from "@mui/material/styles";
 
 const NotFound = ({ width = 164, height = 117 }) => {
   const theme = useTheme();
@@ -136,7 +136,7 @@ const NotFound = ({ width = 164, height = 117 }) => {
 
 NotFound.propTypes = {
   width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  height: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 };
 
 export default NotFound;

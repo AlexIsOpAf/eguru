@@ -25,13 +25,12 @@ export default function Header(props) {
   const classes = useStyles();
   const { color } = props;
   const appBarClasses = classNames({
-    [" " + classes[color]]: color,
+    [" " + classes[color]]: color
   });
   return (
     <AppBar className={classes.appBar + appBarClasses}>
       <Toolbar className={classes.container}>
-        <div className={classes.flex}>
-        </div>
+        <div className={classes.flex}></div>
         <Hidden smDown implementation="css">
           {props.rtlActive ? <RTLNavbarLinks /> : <AdminNavbarLinks />}
         </Hidden>
@@ -53,5 +52,5 @@ Header.propTypes = {
   color: PropTypes.oneOf(["primary", "info", "success", "warning", "danger"]),
   rtlActive: PropTypes.bool,
   handleDrawerToggle: PropTypes.func,
-  routes: PropTypes.arrayOf(PropTypes.object),
+  routes: PropTypes.arrayOf(PropTypes.object)
 };

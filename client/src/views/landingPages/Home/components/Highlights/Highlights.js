@@ -1,9 +1,9 @@
-import React from 'react';
-import { alpha, useTheme } from '@mui/material/styles';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Avatar from '@mui/material/Avatar';
-import Grid from '@mui/material/Grid';
+import React from "react";
+import { alpha, useTheme } from "@mui/material/styles";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Avatar from "@mui/material/Avatar";
+import Grid from "@mui/material/Grid";
 
 const Highlights = () => {
   const theme = useTheme();
@@ -12,9 +12,9 @@ const Highlights = () => {
       <Grid container spacing={2}>
         {[
           {
-            title: 'Structured Learning Environment',
+            title: "Structured Learning Environment",
             subtitle:
-              'In-depth explanations and videos into solutions so you can practice \'getting it right\'. ',
+              "In-depth explanations and videos into solutions so you can practice 'getting it right'. ",
             icon: (
               <svg
                 height={24}
@@ -31,12 +31,12 @@ const Highlights = () => {
                   d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"
                 />
               </svg>
-            ),
+            )
           },
           {
-            title: 'Designed to be modern',
+            title: "Designed to be modern",
             subtitle:
-              'Designed with the latest design trends in mind. eGuru feels modern, minimal, and beautiful.',
+              "Designed with the latest design trends in mind. eGuru feels modern, minimal, and beautiful.",
             icon: (
               <svg
                 height={24}
@@ -53,12 +53,12 @@ const Highlights = () => {
                   d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
                 />
               </svg>
-            ),
+            )
           },
           {
-            title: 'Remote Code Execution Engine',
+            title: "Remote Code Execution Engine",
             subtitle:
-              'The intelligent code execution engine lets you build solutions on the platform without leaving for your favourite code editor.',
+              "The intelligent code execution engine lets you build solutions on the platform without leaving for your favourite code editor.",
             icon: (
               <svg
                 height={24}
@@ -75,15 +75,15 @@ const Highlights = () => {
                   d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
                 />
               </svg>
-            ),
-          },
+            )
+          }
         ].map((item, i) => (
           <Grid item xs={12} md={4} key={i}>
-            <Box width={1} height={'100%'} data-aos={'fade-up'}>
+            <Box width={1} height={"100%"} data-aos={"fade-up"}>
               <Box
-                display={'flex'}
-                flexDirection={'column'}
-                alignItems={'center'}
+                display={"flex"}
+                flexDirection={"column"}
+                alignItems={"center"}
               >
                 <Box
                   component={Avatar}
@@ -96,14 +96,14 @@ const Highlights = () => {
                   {item.icon}
                 </Box>
                 <Typography
-                  variant={'h6'}
+                  variant={"h6"}
                   gutterBottom
                   sx={{ fontWeight: 500 }}
-                  align={'center'}
+                  align={"center"}
                 >
                   {item.title}
                 </Typography>
-                <Typography align={'center'} color="textSecondary">
+                <Typography align={"center"} color="textSecondary">
                   {item.subtitle}
                 </Typography>
               </Box>

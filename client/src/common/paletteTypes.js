@@ -1,3 +1,3 @@
-const palettes = ['green', 'blue', 'indigo', 'pink', 'orange'];
+const palettes = ["green", "blue", "indigo", "pink", "orange"];
 
 export default palettes;

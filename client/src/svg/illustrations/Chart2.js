@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { useTheme } from '@mui/material/styles';
+import React from "react";
+import PropTypes from "prop-types";
+import { useTheme } from "@mui/material/styles";
 
 const Chart2 = ({ width = 250, height = 344 }) => {
   const theme = useTheme();
@@ -77,7 +77,7 @@ const Chart2 = ({ width = 250, height = 344 }) => {
 
 Chart2.propTypes = {
   width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  height: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 };
 
 export default Chart2;

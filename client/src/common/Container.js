@@ -1,12 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Box from '@mui/material/Box';
+import React from "react";
+import PropTypes from "prop-types";
+import Box from "@mui/material/Box";
 
 const Container = ({ children, ...rest }) => (
   <Box
     maxWidth={{ sm: 720, md: 1236 }}
-    width={'100%'}
-    margin={'0 auto'}
+    width={"100%"}
+    margin={"0 auto"}
     paddingX={2}
     paddingY={{ xs: 4, sm: 6, md: 8 }}
     {...rest}
@@ -16,7 +16,7 @@ const Container = ({ children, ...rest }) => (
 );
 
 Container.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired
 };
 
 export default Container;

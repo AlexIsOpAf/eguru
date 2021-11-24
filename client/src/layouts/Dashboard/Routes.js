@@ -14,22 +14,22 @@ const dashboardRoutes = [
     name: "Overview",
     icon: Dashboard,
     component: DashboardPage,
-    layout: "/admin",
+    layout: "/admin"
   },
   {
     path: "/user",
     name: "Structured Course",
     icon: Person,
     component: UserProfile,
-    layout: "/admin",
+    layout: "/admin"
   },
   {
     path: "/questions",
     name: "Explore Questions",
     icon: Notifications,
     component: NotificationsPage,
-    layout: "/admin",
-  },
+    layout: "/admin"
+  }
 ];
 
 export default dashboardRoutes;

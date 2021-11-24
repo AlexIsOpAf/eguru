@@ -1,37 +1,37 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { ThemeProvider } from '@mui/material/styles';
-import Paper from '@mui/material/Paper';
-import CssBaseline from '@mui/material/CssBaseline';
-import getTheme from 'theme';
-import palettes from 'common/paletteTypes';
-import AOS from 'aos';
+import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
+import { ThemeProvider } from "@mui/material/styles";
+import Paper from "@mui/material/Paper";
+import CssBaseline from "@mui/material/CssBaseline";
+import getTheme from "theme";
+import palettes from "common/paletteTypes";
+import AOS from "aos";
 
 export const useDarkMode = () => {
-  const [themeMode, setTheme] = useState('light');
+  const [themeMode, setTheme] = useState("light");
   const [paletteType, setPalette] = useState(palettes[0]);
   const [mountedComponent, setMountedComponent] = useState(false);
 
-  const setMode = (mode) => {
-    window.localStorage.setItem('themeMode', mode);
+  const setMode = mode => {
+    window.localStorage.setItem("themeMode", mode);
     setTheme(mode);
   };
 
-  const setThemePalette = (type = 'green') => {
-    const palette = palettes.indexOf(type) === -1 ? 'green' : type;
-    window.localStorage.setItem('themePalette', palette);
+  const setThemePalette = (type = "green") => {
+    const palette = palettes.indexOf(type) === -1 ? "green" : type;
+    window.localStorage.setItem("themePalette", palette);
     setPalette(palette);
   };
 
   const themeToggler = () => {
-    themeMode === 'light' ? setMode('dark') : setMode('light');
+    themeMode === "light" ? setMode("dark") : setMode("light");
   };
 
   useEffect(() => {
-    const localTheme = window.localStorage.getItem('themeMode');
-    localTheme ? setTheme(localTheme) : setMode('light');
-    const localPalette = window.localStorage.getItem('themePalette');
-    localPalette ? setPalette(localPalette) : setThemePalette('green');
+    const localTheme = window.localStorage.getItem("themeMode");
+    localTheme ? setTheme(localTheme) : setMode("light");
+    const localPalette = window.localStorage.getItem("themePalette");
+    localPalette ? setPalette(localPalette) : setThemePalette("green");
     setMountedComponent(true);
   }, []);
 
@@ -40,7 +40,7 @@ export const useDarkMode = () => {
     themeToggler,
     paletteType,
     setThemePalette,
-    mountedComponent,
+    mountedComponent
   ];
 };
 
@@ -51,7 +51,7 @@ export default function WithLayout({
 }) {
   React.useEffect(() => {
     // Remove the server-side injected CSS.
-    const jssStyles = document.querySelector('#jss-server-side');
+    const jssStyles = document.querySelector("#jss-server-side");
     if (jssStyles) {
       jssStyles.parentElement.removeChild(jssStyles);
     }
@@ -60,7 +60,7 @@ export default function WithLayout({
       once: true,
       delay: 50,
       duration: 500,
-      easing: 'ease-in-out',
+      easing: "ease-in-out"
     });
   }, []);
 
@@ -69,7 +69,7 @@ export default function WithLayout({
     themeToggler,
     paletteType,
     setThemePalette,
-    mountedComponent,
+    mountedComponent
   ] = useDarkMode();
 
   useEffect(() => {
@@ -100,5 +100,5 @@ export default function WithLayout({
 
 WithLayout.propTypes = {
   component: PropTypes.elementType.isRequired,
-  layout: PropTypes.elementType.isRequired,
+  layout: PropTypes.elementType.isRequired
 };

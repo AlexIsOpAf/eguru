@@ -1,5 +1,5 @@
 import React from "react";
-import { Outlet } from 'react-router-dom'
+import { Outlet } from "react-router-dom";
 
 // creates a beautiful scrollbar
 import PerfectScrollbar from "perfect-scrollbar";
@@ -17,7 +17,7 @@ import styles from "assets/jss/material-dashboard-react/layouts/adminStyle.js";
 import bgImage from "assets/img/sidebar-2.jpg";
 import logo from "assets/img/reactlogo.png";
 
-import dashboardRoutes from "./Routes"
+import dashboardRoutes from "./Routes";
 
 let ps;
 
@@ -53,10 +53,10 @@ const Dashboard = ({ ...rest }) => {
   const [color, setColor] = React.useState("blue");
   const [fixedClasses, setFixedClasses] = React.useState("dropdown show");
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  const handleImageClick = (image) => {
+  const handleImageClick = image => {
     setImage(image);
   };
-  const handleColorClick = (color) => {
+  const handleColorClick = color => {
     setColor(color);
   };
   const handleFixedClick = () => {
@@ -82,7 +82,7 @@ const Dashboard = ({ ...rest }) => {
     if (navigator.platform.indexOf("Win") > -1) {
       ps = new PerfectScrollbar(mainPanel.current, {
         suppressScrollX: true,
-        suppressScrollY: false,
+        suppressScrollY: false
       });
       document.body.style.overflow = "hidden";
     }
@@ -95,8 +95,6 @@ const Dashboard = ({ ...rest }) => {
       window.removeEventListener("resize", resizeFunction);
     };
   }, [mainPanel]);
-
-
 
   return (
     <div className={classes.wrapper}>
@@ -125,6 +123,5 @@ const Dashboard = ({ ...rest }) => {
     </div>
   );
 };
-
 
 export default Dashboard;

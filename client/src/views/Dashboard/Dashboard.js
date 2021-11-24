@@ -31,11 +31,10 @@ import CardFooter from "common/components/Card/CardFooter.js";
 
 import { bugs, website, server } from "variables/general.js";
 
-
 import {
   dailySalesChart,
   emailsSubscriptionChart,
-  completedTasksChart,
+  completedTasksChart
 } from "variables/charts.js";
 
 import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
@@ -43,10 +42,7 @@ import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js"
 const useStyles = makeStyles(styles);
 
 export default function Dashboard() {
-
   // API CALL: INFO Model: {}
-
-
 
   const classes = useStyles();
   return (
@@ -68,7 +64,7 @@ export default function Dashboard() {
                 <Danger>
                   <Warning />
                 </Danger>
-                <a href="#pablo" onClick={(e) => e.preventDefault()}>
+                <a href="#pablo" onClick={e => e.preventDefault()}>
                   Get more space
                 </a>
               </div>
@@ -144,7 +140,7 @@ export default function Dashboard() {
                   ["1", "Dakota Rice", "$36,738", "Niger"],
                   ["2", "Minerva Hooper", "$23,789", "Curaçao"],
                   ["3", "Sage Rodriguez", "$56,142", "Netherlands"],
-                  ["4", "Philip Chaney", "$38,735", "Korea, South"],
+                  ["4", "Philip Chaney", "$38,735", "Korea, South"]
                 ]}
               />
             </CardBody>

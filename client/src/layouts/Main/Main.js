@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import { useTheme } from '@mui/material/styles';
-import useScrollTrigger from '@mui/material/useScrollTrigger';
-import Divider from '@mui/material/Divider';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Slide from '@mui/material/Slide';
-import { Topbar, Sidebar, Footer } from './components';
-import Container from 'common/Container';
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+import { useTheme } from "@mui/material/styles";
+import useScrollTrigger from "@mui/material/useScrollTrigger";
+import Divider from "@mui/material/Divider";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Slide from "@mui/material/Slide";
+import { Topbar, Sidebar, Footer } from "./components";
+import Container from "common/Container";
 
 const HideOnScroll = ({ children }) => {
   const trigger = useScrollTrigger();
@@ -20,7 +20,7 @@ const HideOnScroll = ({ children }) => {
 };
 
 HideOnScroll.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired
 };
 
 const Main = ({
@@ -28,7 +28,7 @@ const Main = ({
   themeToggler,
   themeMode,
   setThemePalette,
-  paletteType,
+  paletteType
 }) => {
   const theme = useTheme();
   const [openSidebar, setOpenSidebar] = useState(false);
@@ -45,9 +45,9 @@ const Main = ({
     <div>
       <HideOnScroll>
         <AppBar
-          position={'fixed'}
+          position={"fixed"}
           sx={{
-            backgroundColor: theme.palette.background.paper,
+            backgroundColor: theme.palette.background.paper
           }}
           elevation={1}
         >
@@ -79,7 +79,7 @@ Main.propTypes = {
   themeToggler: PropTypes.func.isRequired,
   themeMode: PropTypes.string.isRequired,
   setThemePalette: PropTypes.func.isRequired,
-  paletteType: PropTypes.string.isRequired,
+  paletteType: PropTypes.string.isRequired
 };
 
 export default Main;

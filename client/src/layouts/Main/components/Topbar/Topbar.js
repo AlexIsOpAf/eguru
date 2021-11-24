@@ -1,35 +1,34 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Link from '@mui/material/Link';
-import { useTheme } from '@mui/material/styles';
-import { colors } from '@mui/material';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import WebbeeLogo from 'svg/logos/Webbee';
-import paletteTypes from 'common/paletteTypes';
+import React from "react";
+import PropTypes from "prop-types";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Link from "@mui/material/Link";
+import { useTheme } from "@mui/material/styles";
+import { colors } from "@mui/material";
+import IconButton from "@mui/material/IconButton";
+import MenuIcon from "@mui/icons-material/Menu";
+import WebbeeLogo from "svg/logos/Webbee";
+import paletteTypes from "common/paletteTypes";
 
 const Topbar = ({
   themeMode,
   themeToggler,
   setThemePalette,
   onSidebarOpen,
-  paletteType,
+  paletteType
 }) => {
   const theme = useTheme();
   return (
     <Box
-      display={'flex'}
-      justifyContent={'space-between'}
-      alignItems={'center'}
-      width={'100%'}
+      display={"flex"}
+      justifyContent={"space-between"}
+      alignItems={"center"}
+      width={"100%"}
     >
-      <Box display={'flex'} alignItems={'center'}>
-        <Box marginRight={{ xs: 1, sm: 2 }}>
-        </Box>
+      <Box display={"flex"} alignItems={"center"}>
+        <Box marginRight={{ xs: 1, sm: 2 }}></Box>
         <Box
-          display={'flex'}
+          display={"flex"}
           alignItems="baseline"
           component="a"
           underline="none"
@@ -38,17 +37,17 @@ const Topbar = ({
           height={{ xs: 28, md: 32 }}
           width={45}
         >
-          <WebbeeLogo height={'100%'} width={'100%'} />
+          <WebbeeLogo height={"100%"} width={"100%"} />
         </Box>
       </Box>
-      <Box display="flex" alignItems={'center'}>
+      <Box display="flex" alignItems={"center"}>
         <Box>
           <IconButton
             onClick={() => themeToggler()}
             aria-label="Dark mode toggler"
-            color={themeMode === 'light' ? 'primary' : 'secondary'}
+            color={themeMode === "light" ? "primary" : "secondary"}
           >
-            {themeMode === 'light' ? (
+            {themeMode === "light" ? (
               <svg
                 width={24}
                 height={24}
@@ -93,7 +92,7 @@ Topbar.propTypes = {
   themeToggler: PropTypes.func.isRequired,
   themeMode: PropTypes.string.isRequired,
   setThemePalette: PropTypes.func.isRequired,
-  paletteType: PropTypes.string.isRequired,
+  paletteType: PropTypes.string.isRequired
 };
 
 export default Topbar;
