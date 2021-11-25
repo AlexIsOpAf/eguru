@@ -45,10 +45,10 @@ jobs:
         cache: 'npm'
     - working-directory: ./client
       run: |
-        npm run prettier:fix
+        npm ci
     - working-directory: ./client
       run: |
-        npm ci
+        npm run prettier:fix
     - working-directory: ./client
       run: |
         npm run build
