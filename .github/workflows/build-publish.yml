@@ -43,9 +43,12 @@ jobs:
       with:
         node-version: '17'
         cache: 'npm'
-    - run: |
+    - working-directory: ./client
+      run: |
         npm run prettier:fix
-    - run: |
+    - working-directory: ./client
+      run: |
         npm ci
-    - run: |
+    - working-directory: ./client
+      run: |
         npm run build
