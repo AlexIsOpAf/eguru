@@ -37,22 +37,15 @@ jobs:
         tags: ${{ secrets.DOCKER_USER }}/eguru:latest
   lint-format-client:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-      node: [17.0.1]
     steps:
-      - name: Checkout Commit
-      uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node }}
-      uses: actions/setup-node@v1
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
       with:
-        node-version: ${{ matrix.node }}
-      - name: Run prettier
-      run: |
+        node-version: '17'
+        cache: 'npm'
+    - run: |
         npm run prettier:fix
-      - name: Install dependencies
-      run: |
+    - run: |
         npm ci
-      - name: Run buld
-      run: |
+    - run: |
         npm run build
