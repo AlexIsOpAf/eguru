@@ -18,7 +18,7 @@ const dashboardRoutes = [
   },
   {
     path: "/user",
-    name: "Structured Course",
+    name: "Course Content",
     icon: Person,
     component: UserProfile,
     layout: "/admin"
