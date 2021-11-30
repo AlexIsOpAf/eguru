@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 // react plugin for creating charts
 import ChartistGraph from "react-chartist";
 // @material-ui/core
@@ -38,11 +38,39 @@ import {
 } from "variables/charts.js";
 
 import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
+import axios from "IAxios";
 
 const useStyles = makeStyles(styles);
 
+const base = {
+  "id": 0,
+  "problem_breakdown": {
+      "solved": 0,
+      "easy": 0,
+      "medium": 0,
+      "hard": 0
+  },
+
+  "recent_submission": {
+      "problem_name": "",
+      "language": "",
+      "status": 0
+  },
+
+  "acceptance_rate": 0.0
+}
+
+const test = {}
+
 export default function Dashboard() {
-  // API CALL: INFO Model: {}
+
+  const [data, setInfo] = useState(base);
+
+  useEffect(() => {
+    axios.Information.getInfo().then((res) => {
+      setInfo(res.data[0]);
+    })
+  }, []);
 
 
   
@@ -57,7 +85,7 @@ export default function Dashboard() {
                 <Icon>content_copy</Icon>
               </CardIcon>
               <p className={classes.cardCategory}>Problems Solved</p>
-              <h3 className={classes.cardTitle}>63</h3>
+              <h3 className={classes.cardTitle}>{data.problem_breakdown.solved}</h3>
             </CardHeader>
             <CardFooter stats>
               <div className={classes.stats}>
@@ -74,7 +102,7 @@ export default function Dashboard() {
                 <Store />
               </CardIcon>
               <p className={classes.cardCategory}>Acceptance Rate</p>
-              <h3 className={classes.cardTitle}>60%</h3>
+              <h3 className={classes.cardTitle}>{data.acceptance_rate}%</h3>
             </CardHeader>
             <CardFooter stats>
               <div className={classes.stats}>

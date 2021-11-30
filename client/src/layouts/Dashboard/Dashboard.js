@@ -21,26 +21,6 @@ import dashboardRoutes from "./Routes";
 
 let ps;
 
-// const switchRoutes = (
-//   <Switch>
-//     {console.log(Routes)}
-//     {Routes.map((prop, key) => {
-//       if (prop.layout === "/admin") {
-//         return (
-//           <Route
-//             path={prop.layout + prop.path}
-//             component={prop.component}
-//             key={key}
-//           />
-//         );
-//       }
-//       return null;
-//     })}
-//     <Route path="/admin" render={() => <Redirect to="/admin/dashboard"/>}    />
-//     {/* <Redirect from="/admin" to="/admin/dashboard" /> */}
-//   </Switch>
-// );
-
 const useStyles = makeStyles(styles);
 
 const Dashboard = ({ ...rest }) => {
@@ -113,7 +93,6 @@ const Dashboard = ({ ...rest }) => {
           handleDrawerToggle={handleDrawerToggle}
           {...rest}
         />
-        {/* On the /maps route we want the map to be on full screen - this is not possible if the content and conatiner classes are present because they have some paddings which would make the map smaller */}
         <div className={classes.content}>
           <div className={classes.container}>
             <Outlet />

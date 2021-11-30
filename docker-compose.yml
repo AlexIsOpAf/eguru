@@ -1,12 +1,31 @@
 version: "3.8"
 
 services:
-  app:
-    container_name: app-dev
-    image: app-dev
+  client:
+    container_name: client
+    image: client
     build:
       context: './client'
     ports:
       - 3000:3000
     stdin_open: true
 
+  api:
+    container_name: api
+    image: api
+    build:
+      context: './API'
+    ports:
+      - 8080:8080
+
+  database:
+    image: 'mongo'
+    container_name: 'mongo-container'
+    environment:
+      - MONGO_INITDB_DATABASE=testDB
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=toor
+    volumes:
+    - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+    ports:
+    - '27017:27017'

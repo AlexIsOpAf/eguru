@@ -1,23 +1,30 @@
-## Base image for go app
-FROM golang:1.12.0-alpine3.9
+# Base Image
+FROM golang:1.17-alpine AS build-env
 
-# Installing git and gorilla mux module? go mod download if more dependencies
-RUN apk update && apk add git && go get -u github.com/gorilla/mux
-
-EXPOSE 8080
-## We create an /app directory within our
-## image that will hold our application source
-## files
+# All these steps will be cached
 RUN mkdir /app
-## We copy everything in the root directory
-## into our /app directory
+
+
+WORKDIR /app
+COPY go.mod .
+COPY go.sum .
+
+# Get dependancies - will also be cached if we won't change mod/sum
+RUN go mod download
+# COPY the source code as the last step
 ADD . /app
 
-## Our current working directory
-WORKDIR /app
+# Build the binary
+RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -installsuffix cgo -o guru ./...
 
-## Compile and build go binary main
-RUN go build ./...
+# Run Binary
+CMD ["/app/guru"]
 
-## Run go binary
-CMD ./guru
+
+
+
+# Minimal image for running single binaries - Optimisation if needed
+# FROM scratch
+# COPY --from=build-env /eguru-api /
+# EXPOSE 8080
+# ENTRYPOINT ["/eguru-api"]
