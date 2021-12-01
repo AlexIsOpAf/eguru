@@ -12,7 +12,7 @@ const Features = () => {
   let navigate = useNavigate();
 
   const navDashboard = () => {
-    navigate("/admin/dashboard");
+    navigate("/admin/overview");
   };
 
   return (

@@ -5,8 +5,7 @@ import Notifications from "@material-ui/icons/Notifications";
 // core components/views for Admin layout
 import DashboardPage from "views/Dashboard/Dashboard.js";
 import UserProfile from "views/UserProfile/UserProfile.js";
-import NotificationsPage from "views/Notifications/Notifications.js";
-// core components/views for RTL layout
+import Questions from "views/Questions/Questions";
 
 const dashboardRoutes = [
   {
@@ -25,9 +24,9 @@ const dashboardRoutes = [
   },
   {
     path: "/questions",
-    name: "Explore Questions",
+    name: "Questions",
     icon: Notifications,
-    component: NotificationsPage,
+    component: Questions,
     layout: "/admin"
   }
 ];

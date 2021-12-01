@@ -23,7 +23,8 @@ package model
 type submissionStatus int
 
 const (
-	Accepted submissionStatus = iota
+	Incomplete submissionStatus = iota
+	Accepted
 	TimeExceededError
 	RunTimeError
 	WrongAnswer
@@ -36,17 +37,12 @@ type problemBreakdown struct {
 	Hard   int `json:"hard" bson:"hard"`
 }
 
-type submission struct {
-	ProblemName string           `json:"problem_name" bson:"problem_name"`
-	Language    string           `json:"language" bson:"language"`
-	Status      submissionStatus `json:"submission_status" bson:"submission_status"`
-}
-
 type Information struct {
 	ID               int              `json:"id" bson:"id"`
 	ProblemSolved    problemBreakdown `json:"problem_breakdown" bson:"problem_breakdown"`
-	RecentSubmission submission       `json:"recent_submission" bson:"recent_submission"`
+	RecentSubmission Question         `json:"recent_submission" bson:"recent_submission"`
 	AcceptanceRate   float32          `json:"acceptance_rate" bson:"acceptance_rate,truncate"`
+	Score            int              `json:"score" bson:"score"`
 }
 
 // ------------------------------------------------------------------------------
@@ -59,9 +55,15 @@ type Information struct {
 
 // CI/CD will change storage to point from local directory to s3 bucket in aws
 type Question struct {
-	Id      int
-	Name    string
-	Storage string
+	ID          int              `json:"id" bson:"id"`
+	Type        int              `json:"type" bson:"type"`
+	Name        string           `json:"name" bson:"name"`
+	Base        string           `json:"base" bson:"base"`
+	Solution    string           `json:"solution" bson:"solution"`
+	Language    string           `json:"language" bson:"language"`
+	Status      submissionStatus `json:"submission_status" bson:"submission_status"`
+	Information string           `json:"info" bson:"info"`
+	Difficulty  string           `json:"difficulty,omitempty" bson:"difficulty"`
 }
 
 // ------------------------------------------------------------------------------

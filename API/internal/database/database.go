@@ -152,3 +152,32 @@ func ShowContentCollection(collectionName string) ([]model.Content, error) {
 	return container, nil
 
 }
+
+func ShowQuestionCollection(collectionName string, questionLimit int) ([]model.Question, error) {
+	ctx, _ := context.WithTimeout(context.Background(), 5*time.Second)
+	// .Collection(func Lookup(TypeID)  )
+	collection := MongoDB.Database("testDB").Collection(collectionName)
+
+	var container []model.Question
+
+	cursor, err := collection.Find(ctx, bson.M{"type": questionLimit}, mOptions)
+	if err != nil {
+		return nil, err
+	}
+
+	defer cursor.Close(ctx)
+	for cursor.Next(ctx) {
+		var p model.Question
+		if err := cursor.Decode(&p); err != nil {
+			return nil, err
+		}
+		container = append(container, p)
+	}
+
+	if err := cursor.Err(); err != nil {
+		return nil, err
+	}
+
+	return container, nil
+
+}

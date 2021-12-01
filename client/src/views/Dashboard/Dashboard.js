@@ -119,7 +119,7 @@ export default function Dashboard() {
                 <Accessibility />
               </CardIcon>
               <p className={classes.cardCategory}>Monthly Score</p>
-              <h3 className={classes.cardTitle}>245</h3>
+              <h3 className={classes.cardTitle}>{data.score}</h3>
             </CardHeader>
             <CardFooter stats>
               <div className={classes.stats}>

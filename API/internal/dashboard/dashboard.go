@@ -9,4 +9,6 @@ func DashboardHandler(m *mux.Router) {
 
 	subRoute.HandleFunc("/info", InformationHandler)
 	subRoute.HandleFunc("/content", ContentHandler)
+	subRoute.HandleFunc("/question/{type}", QuestionHandler)
+
 }

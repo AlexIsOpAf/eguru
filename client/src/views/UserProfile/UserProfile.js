@@ -55,6 +55,9 @@ export default function UserProfile() {
 
 
   const handleChange = (idx) => {
+    if (idx === content.length) {
+      return
+    }
     setID(content[idx].embedId);
     console.log(youtubeEmbedID);
   }

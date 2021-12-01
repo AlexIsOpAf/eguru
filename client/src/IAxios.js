@@ -1,5 +1,6 @@
 import axios from 'axios'
 
+// This change in ci app.env
 const LOCAL_HOST_ROOT_API = 'http://localhost:8080';
 
 const axiosRequestBuilder = (API_URL, URL, METHOD) => {
@@ -22,7 +23,9 @@ const Information = {
     getInfo: () =>
         requests.get(`dashboard/info`),
     getAllContent: () =>
-        requests.get(`dashboard/content`)
+        requests.get(`dashboard/content`),
+    getAllQuestions: (limitBy) =>
+        requests.get(`dashboard/question/${limitBy}`) // Limit by content
 };
 
 const Info = {

@@ -4,7 +4,7 @@ import WithLayout from "WithLayout";
 
 import DashboardPage from "./views/Dashboard/Dashboard.js";
 import UserProfile from "./views/UserProfile/UserProfile.js";
-import Notifications from "./views/Notifications/Notifications";
+import Questions from "./views/Questions/Questions";
 
 import { Main as MainLayout, Dashboard as DashboardView } from "./layouts";
 
@@ -43,7 +43,7 @@ const App = () => {
         <Route path="/admin" element={<DashboardView />}>
           <Route path="overview" element={<DashboardPage />} />
           <Route path="user" element={<UserProfile />} />
-          <Route path="questions" element={<Notifications />} />
+          <Route path="questions" element={<Questions />} />
         </Route>
       </Routes>
     </Router>

@@ -13,6 +13,7 @@ export default function VerticalLinearStepper(props) {
     const [steps, setSteps] = React.useState([]);
 
     React.useEffect(() => {
+        setActiveStep(5);
         setSteps(props.content)
       }, []);
 

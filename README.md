@@ -39,7 +39,10 @@ The complete system design that covers everything that contributes to the applic
 
 ### Progression System Outline
 
-*** Need to update ***
+1. The user enters the dashboard immersion
+2. The user has to complete the sectioned videos about various algorithms and data structures topic
+3. The user is presented with questions relevant to the content they have viewed for e.g If they have not viewed the arrays video, that content will ideally not be shown.
+4. When the user submits a question they are allocated points depending on how efficient the solution is
 
 
 ### Infrastructure
